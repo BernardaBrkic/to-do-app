@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <BackgroundImage />
+    <div class="content">
+      <div class="wrapper">
+        <section>
+          <h1>To-Do App</h1>
+          <p>
+            It's hard to keep everything you have to do under control. Keep
+            track of all your tasks in one place.
+          </p>
+        </section>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import BackgroundImage from "../components/BackgroundImage.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    BackgroundImage,
   },
 };
 </script>
+
+<style lang="scss" scoped>
+section h1 {
+  text-transform: uppercase;
+}
+</style>
