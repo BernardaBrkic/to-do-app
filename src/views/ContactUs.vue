@@ -84,6 +84,10 @@ export default {
         this.lastname = "";
         this.senderAdress = "";
         this.message = "";
+
+        alert(
+          "Your message was successfully submitted! We'll answer you as soon as possible."
+        );
       } catch (error) {
         console.log({ error });
       }
