@@ -5,18 +5,45 @@
       <div class="wrapper">
         <section>
           <h1>Contact us</h1>
-          <form action="">
+          <form @submit.prevent="sendMessage">
             <div class="input-field">
-              <input type="text" id="firstname" required />
+              <input
+                type="text"
+                id="firstname"
+                v-model="firstname"
+                name="firstname"
+                required
+              />
               <label for="firstname">Firstname</label>
             </div>
             <div class="input-field">
-              <input type="text" id="lastname" required />
+              <input
+                type="text"
+                id="lastname"
+                v-model="lastname"
+                name="lastname"
+                required
+              />
               <label for="lastname">Lastname</label>
             </div>
             <div class="input-field">
-              <input type="email" id="email" required />
+              <input
+                type="email"
+                id="email"
+                v-model="senderAdress"
+                name="senderAdress"
+                required
+              />
               <label for="email">Email adress</label>
+            </div>
+            <div class="input-field">
+              <textarea
+                id="message"
+                v-model="message"
+                name="message"
+                required
+              />
+              <label for="message">Your message</label>
             </div>
             <button>Send message</button>
           </form>
@@ -27,7 +54,42 @@
 </template>
 
 <script>
-export default {};
+import emailjs from "emailjs-com";
+
+export default {
+  data() {
+    return {
+      firstname: "",
+      lastname: "",
+      senderAdress: "",
+      message: "",
+    };
+  },
+  methods: {
+    sendMessage(e) {
+      try {
+        emailjs.sendForm(
+          "service_lqivm2d",
+          "template_gjj017b",
+          e.target,
+          "user_HAvXbKaVfznM5LVHE1Tzs",
+          {
+            firstname: this.firstname,
+            lastname: this.lastname,
+            senderAdress: this.senderAdress,
+            message: this.message,
+          }
+        );
+        this.firstname = "";
+        this.lastname = "";
+        this.senderAdress = "";
+        this.message = "";
+      } catch (error) {
+        console.log({ error });
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -38,18 +100,27 @@ export default {};
   background-size: 100vh;
   background-repeat: no-repeat;
 }
-.input-field input {
+.input-field input,
+.input-field textarea {
   all: unset;
   width: 100%;
   height: 50px;
   border-bottom: 2px solid #4cb494;
   background-color: #ffffff11;
-  text-indent: 10px;
+  padding: 0 10px;
   color: #4cb494;
 }
-.input-field input:focus {
+.input-field textarea {
+  height: 100px;
+  word-wrap: break-word;
+}
+.input-field input:focus,
+.input-field textarea:focus {
   padding-top: 8px;
   transition: 0.2s ease all;
+}
+.input-field textarea:focus {
+  padding-top: 22px;
 }
 .input-field {
   position: relative;
@@ -66,6 +137,7 @@ label {
   transition: 0.2s ease all;
 }
 .input-field input:focus ~ label,
+.input-field textarea:focus ~ label,
 .input-field input:not(:focus):valid ~ label {
   top: 5px;
   font-size: 11px;
