@@ -145,7 +145,7 @@ label {
 .input-field input:not(:focus):valid ~ label {
   top: 5px;
   font-size: 11px;
-  opacity: 1;
+  opacity: 0.5;
 }
 form,
 section h1 {
