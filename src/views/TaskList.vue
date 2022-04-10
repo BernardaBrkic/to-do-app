@@ -1,7 +1,7 @@
 <template>
   <div class="task-list">
     <div class="overlay"></div>
-    <div class="content">
+    <div class="content" onload="contentFunction()">
       <div class="wrapper">
         <section class="empty-list">
           <h1>Task list</h1>
@@ -13,7 +13,7 @@
         </section>
         <section class="list">
           <h1>Edit tasks</h1>
-          <ul>
+          <ul onload="contentFunction()">
             <li></li>
           </ul>
         </section>
@@ -23,9 +23,21 @@
 </template>
 
 <script>
-// import { content } from "./AddToDo.vue";
+import { content } from "./AddToDo.vue";
 
-export default {};
+export default {
+  methods: {
+    contentFunction: function () {
+      if (content == true) {
+        document.querySelector(".empty-list").classList.add("active");
+        console.log("RADI!!!!");
+      } else {
+        document.querySelector(".list").classList.add("active");
+        console.log("RADI!!!!");
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -43,10 +55,16 @@ p a {
   font-weight: bold;
   color: #4cb494;
 }
-// .empty-list {
-//   display: none;
-// }
+.empty-list {
+  display: none;
+}
+.empty-list.active {
+  display: block;
+}
 .list {
   display: none;
+}
+.list.active {
+  display: block;
 }
 </style>
