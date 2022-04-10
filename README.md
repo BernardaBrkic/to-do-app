@@ -6,8 +6,8 @@ To-do app is planned to be a simple app that will allow users to list all their 
 
 ## Showcase
 
-![image](showcase/showcase.png)
-![image](showcase/showcase2.png)
+![image](Showcase/showcase.png)
+![image](Showcase/showcase2.png)
 
 <hr>
 
