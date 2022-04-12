@@ -1,11 +1,11 @@
 <template>
   <nav>
     <div class="wrapper">
-      <router-link to="/contactus">Contact us</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/tasklist">Task list</router-link>
-      <router-link to="/addtask">Add Task</router-link>
       <router-link to="/">Home</router-link>
+      <router-link to="/addtask">Add Task</router-link>
+      <router-link to="/tasklist">Task list</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contactus">Contact us</router-link>
     </div>
   </nav>
   <router-view />
@@ -31,14 +31,18 @@ nav {
   width: 100%;
   z-index: 3;
   top: 0;
+  padding: 20px 0;
+}
+nav .wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2%;
 }
 nav a {
   font-weight: bold;
   color: #efefef;
   text-decoration: none;
   text-transform: uppercase;
-  float: right;
-  margin: 20px 2%;
   font-size: 18px;
   text-shadow: 2px 2px 3px #000;
 }
