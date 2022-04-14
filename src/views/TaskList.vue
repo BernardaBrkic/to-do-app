@@ -55,9 +55,9 @@ p a {
   font-weight: bold;
   color: #4cb494;
 }
-.empty-list {
-  display: none;
-}
+// .empty-list {
+//   display: none;
+// }
 .empty-list.active {
   display: block;
 }
