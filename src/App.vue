@@ -4,7 +4,6 @@
       <router-link to="/">Home</router-link>
       <router-link to="/addtask">Add Task</router-link>
       <router-link to="/tasklist">Task list</router-link>
-      <router-link to="/about">About</router-link>
       <router-link to="/contactus">Contact us</router-link>
     </div>
   </nav>
