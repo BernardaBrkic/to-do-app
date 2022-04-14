@@ -14,7 +14,7 @@
           </form>
         </section>
         <ul v-for="newToDo in toDos" :key="newToDo">
-          <li>{{ newToDo.addedData }}</li>
+          <li :isAdded="true">{{ newToDo.addedData }}</li>
         </ul>
       </div>
     </div>
@@ -43,6 +43,11 @@ export default {
       toDos,
       newToDo,
       addNewTask,
+    };
+  },
+  data() {
+    return {
+      isAdded: false,
     };
   },
 };
