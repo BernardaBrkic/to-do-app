@@ -11,13 +11,6 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    component: function () {
-      return import(/* webpackChunkName: "about" */ "../views/AboutView.vue");
-    },
-  },
-  {
     path: "/addtask",
     name: "addtask",
     component: AddToDo,
